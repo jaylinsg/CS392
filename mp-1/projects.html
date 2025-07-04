@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- responsive meta tag (set width to match device's screen width) -->
+         <!-- helpful for mobile display -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home | Resume</title>
+        <!-- removed "type="text/css" from below, css is assumed -->
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="page-wrapper">
+            <header>
+                <h1>Jaylin Starlin-Ganaway</h1>
+                <p><strong>My online resume</strong></p>
+            </header>
+            <!-- replaced id=container with class=layout 
+            (classes might be better for later on) -->
+            <div class="layout">
+                <nav>
+                    <ul>
+                        <!-- aria shows current page -->
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="employment.html">Employment</a></li>
+                        <li><a href="projects.html" aria-current="page">Projects</a></li>
+                        <li><a href="aspirations.html">Aspirations</a></li>
+                    </ul>
+                </nav>
+                <main>
+                    <!-- used figure/figcaption for easier editing -->
+                    <h2>Projects</h2>
+                    <p>
+                        I was introduced to coding in my freshman year of college, and have fell in love with it since.
+                        These are the various projects I have worked on throughout the years.
+                    </p>
+                </main>
+            </div>
+            <section id="calculator">
+            <h2>Simple Calculator</h2>
+            <!-- two *number* inputs -->
+            <input
+                type="number"
+                id="calc-input1"
+                placeholder="First number"
+            >
+            <input
+                type="number"
+                id="calc-input2"
+                placeholder="Second number"
+            >
+            <!-- operation buttons -->
+            <div id="calc-buttons">
+                <button id="add-btn">+</button>
+                <button id="subtract-btn">−</button>
+                <button id="multiply-btn">×</button>
+                <button id="divide-btn">÷</button>
+                <button id="power-btn">^</button>
+                <button id="clear-btn">C</button>
+            </div>
+            <!-- result -->
+            <div id="result"></div>
+            </section>
+            <footer>
+                <p>&#169; 2025 Jaylin Starlin-Ganaway. <a href="credits.html">Credits</a></p>
+            </footer>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

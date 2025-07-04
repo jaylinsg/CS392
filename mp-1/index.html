@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- responsive meta tag (set width to match device's screen width) -->
+         <!-- helpful for mobile display -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home | Resume</title>
+        <!-- removed "type="text/css" from below, css is assumed -->
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="page-wrapper">
+            <header>
+                <h1>Jaylin Starlin-Ganaway</h1>
+                <p><strong>My online resume</strong></p>
+            </header>
+            <!-- replaced id=container with class=layout 
+            (classes might be better for later on) -->
+            <div class="layout">
+                <nav>
+                    <ul>
+                        <!-- aria shows current page -->
+                        <li><a href="index.html" aria-current="page">Home</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="employment.html">Employment</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="aspirations.html">Aspirations</a></li>
+                    </ul>
+                </nav>
+                <main>
+                    <!-- used figure/figcaption for easier editing -->
+                    <figure>
+                        <img src="IMG_9532.jpeg" alt="Jaylin Starlin-Ganaway">
+                        <figcaption>Boston University CS Major</figcaption>
+                    </figure>
+                    <p>I am a CS major at Boston University.</p>
+                </main>
+            </div>
+            <footer>
+                <p>&#169; 2025 Jaylin Starlin-Ganaway. <a href="credits.html">Credits</a></p>
+            </footer>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

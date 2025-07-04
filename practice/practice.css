@@ -1,0 +1,30 @@
+#db{color: #090040}
+#mb{color: #471396}
+#or{color: #FFCC00}
+#pu{color: #B13BFF}
+
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    color: #FFCC00;
+}
+h2 {
+    font-weight: bold;
+    color: #FFCC00;
+}
+h3 {color: #FFCC00}
+p {color: #B13BFF}
+th {color: #B13BFF}
+li {color: #B13BFF}
+
+
+body {
+    /* text-align: center; */
+    background-color: #090040;
+}
+
+div {
+    height: 50px;
+    width: 50px;
+}
