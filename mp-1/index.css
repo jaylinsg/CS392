@@ -35,9 +35,12 @@ body {
 page wrapper
 *****************************************/
 #page-wrapper{
-    width: 80vw;
-    background-color: var(--dark);
-    margin: 0 auto;     /* center on screen */
+    padding: var(--gutter);
+    max-width: 80vw;
+    /* background-color: var(--dark);  */
+    margin: var(--gutter) auto;     /* center on screen */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); */
+    box-shadow: 1px 0 10px var(--bright);
 }
 
 /* container being replaced by .layout */
@@ -66,6 +69,7 @@ nav{
     /* width: 30%; */
     flex: 0 0 30%;        /* set to 30% of width */
     background: var(--mid);
+    box-shadow: 1px 0 10px var(--dark);
 }
 
 nav ul{
@@ -87,8 +91,7 @@ nav li{
 nav a{
     /* padding: 1% 2%; */
     padding: 8px var(--gutter);
-    /* font-size: calc(2px + 1.5vw); */
-    font-size: 19px;
+    font-size: calc(2px + 1.5vw);
     text-decoration: none;
     color: var(--bright);
     text-align: center;
@@ -113,16 +116,31 @@ main{
     width: 70%;
     background-color: #090040; */
     flex: 1;
+    /* display: flex; */
+    align-items: flex-start;
+    gap: var(--gutter);
     padding: var(--gutter);
     background: var(--dark);
 }
 
-main img{
+/* main img{
     max-width: 100%;
-    width: 70%; 
+    width: 50%; 
     height: auto;
     display: block;
     margin: 0 auto var(--gutter);
+} */
+
+.intro-figure img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.intro-text {
+    flex: 1;
 }
 
 
@@ -130,11 +148,11 @@ main img{
 text
 *****************************************/
 h1{
-    font-size: 40px;
+    font-size: calc(40px + 0.5vw);
 }
 
 p, figcaption{
-    font-size: 16px;
+    font-size: calc(16px + 0.5vw);
     line-height: 1.5;
     color: #eee;
     margin-bottom: var(--gutter);
@@ -147,29 +165,50 @@ layout
 .layout {
     display: flex;
     flex-wrap: wrap;    /* allows stacking (good 4 narrow screen) */
+    align-items: flex-start;
 }
 
 
 /***************************************** 
-layout 4 smaller screens
+layout 4 smaller screens (seperate 1000px n 750px)
 *****************************************/
-@media  screen and (max-width: 1000px){
-    /* #container{
-        display: flex;
+@media (max-width: 1000px){
+    /* if > 1000: nav fitting adjustments */
+    main{
         flex-direction: column;
-    } */
-
-    main,nav{
+    } 
+    .intro-text{
+        margin-top: var(--gutter);
+    }
+    nav{
         /* width: 100%; */
         flex: 1 1 100%
     }
-
     nav ul{
         flex-direction: row;
+        /* keep nav links in a row */
+        justify-content: center;
+        flex-wrap: wrap;
     }
-
     nav a {
-        font-size: 16px;
+        font-size: calc(14px + 0.5vw);
+    }
+    nav li{
+        margin: var(--gutter) 8px;
+    }
+}
+
+@media (max-width: 750px){
+    /* if > 750: decrease text sizes, let wrapper fill most of screen */
+    header h1 {
+        font-size: calc(32px + 0.5vw);
+    }
+    nav a {
+        font-size: calc(14px + 0.5vw);
+        padding: 6px 8px;
+    }
+    #page-wrapper  {
+        max-width: 95vw;
     }
 }
 
@@ -198,13 +237,13 @@ calculator
 #calc-buttons button {
   padding: 8px 12px;
   margin: 4px;
-  font-size: 16px;              
+  font-size: calc(16px + 0.5vw);              
   cursor: pointer;
 }
 
 #result {
   margin-top: var(--gutter);
-  font-size: 18px;
+  font-size: calc(18px + 0.5vw);
   font-weight: bold;
 }
 
