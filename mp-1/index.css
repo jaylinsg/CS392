@@ -45,7 +45,7 @@ header,
 footer {
     background: var(--accent);
     padding: var(--gutter);
-    text-align: left;    /* left-aligned on desktop */
+    text-align: center;    
 }
 
 /***************************************** 
@@ -234,4 +234,31 @@ calculator styles
 /* red text whenever the result is negative */
 #result.negative {
     color: red;
+}
+
+/* ---------------------------------------------
+   contact section (full-width, centered)
+----------------------------------------------- */
+.contact-section {
+  background: var(--accent);
+  padding: var(--gutter);
+  margin: var(--gutter) auto;
+  max-width: 80vw;         /* match wrapper width */
+  border-radius: 4px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: calc(14px + 0.5vw);
+  margin-bottom: 0.5em;
+}
+
+.contact-section p {
+  font-size: calc(10px + 0.5vw);
+  margin: 0.25em 0;
+}
+
+.contact-section a {
+  color: var(--bright);
+  text-decoration: underline;
 }
