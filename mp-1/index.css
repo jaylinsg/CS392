@@ -102,14 +102,17 @@ layout
 main
 *****************************************/
 main {
-    display: flex;
-    flex-direction: row;     /* image + text side-by-side */
     flex: 0 0 70%;           /* 70% width on large screens */
-    height: 100vh;           /* fill full viewport height */
-    align-items: flex-start;
-    gap: var(--gutter);
+    min-height: 100vh;           /* fill full viewport height */
     padding: var(--gutter);
     background: var(--dark);
+}
+
+main.intro {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--gutter);
 }
 
 /***************************************** 
@@ -136,7 +139,7 @@ h1 {
 
 p,
 figcaption {
-    font-size: calc(16px + 0.5vw);
+    font-size: calc(12px + 0.5vw);
     line-height: 1.5;
     color: #eee;
     margin-bottom: var(--gutter);
