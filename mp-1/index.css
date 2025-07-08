@@ -6,10 +6,54 @@ JaStaGa CSS
 variables 4ez edits
 *****************************************/
 :root {
-    --dark:     #000000;    /* background */
-    --mid:      #9292928f;  /* nav background */
-    --bright:   #00ff15;    /* bright text */
-    --accent:   #004506;    /* header/footer */
+    /* ORANGE N PURP */
+    /* --dark:   #3B2C35;
+    --mid:    #593C50;
+    --bright: #D8A47F;
+    --accent: #C84B31; */
+
+    /* CREAM */
+    /* --dark:   #42342A;
+    --mid:    #8E7D6E;
+    --bright: #EDE4E0;
+    --accent: #C19A65; */
+
+    /* RED N BLACK */
+    /* --dark:   #000000;
+    --mid:    #666666;
+    --bright: #FFFFFF;
+    --accent: #FF0000; */
+
+    /* ORANGEY TEAL */
+    /* --dark:   #0B1D26;
+    --mid:    #1C3A3E;
+    --bright: #FFCB47;
+    --accent: #EB5E28;   */
+    
+    /* ORANGE N BLACK */
+    /* --dark:   #0A0908;
+    --mid:    #1A1819;
+    --bright: #F4D35E;
+    --accent: #EE964B; */
+
+    /* MINTY GREENS */
+    /* --dark:   #2F5233;
+    --mid:    #406343;
+    --bright: #F2E8CF;
+    --accent: #A5C8A1; */
+
+    /* LIGHT BLUES */
+    /* --dark:   #102A43;
+    --mid:    #243B53;
+    --bright: #BFDBF7;
+    --accent: #4895EF; */
+
+    /* BLUE N AQUA */
+    --dark:   #02111B;
+    --mid:    #03435F;
+    --bright: #76EEC6;
+    --accent: #028090;
+
     --gutter:   16px;       /* padding/margins */
 }
 
@@ -47,7 +91,7 @@ header,
 footer {
     background: var(--accent);
     padding: var(--gutter);
-    text-align: center;    
+    text-align: left;    
 }
 
 /***************************************** 
@@ -111,7 +155,7 @@ main {
     background: var(--dark);
 }
 
-main.intro {
+.intro {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
