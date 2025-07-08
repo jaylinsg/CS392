@@ -1,0 +1,19 @@
+/* Task 4.1: hide both content areas on load */
+#main-content,
+#error-content {
+  visibility: hidden;
+}
+
+/* Task 4.2: make error text red */
+#error-message {
+  color: red;
+}
+
+/* Center the page */
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
