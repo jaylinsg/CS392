@@ -1,13 +1,28 @@
-import styled from "styled-components";
+// mp-2/src/App.tsx
+
+import styled, { createGlobalStyle } from "styled-components";
 import {useEffect, useState} from "react";
 import AnimeList from "./components/AnimeList";
 import type { Anime } from "./interfaces/types";
+// import './App.css';
 
 
 const ParentDiv=styled.div`
     width: 80vw;
     margin: auto;
-    border: 5px darkgoldenrod solid;
+    border: 5px coral solid;
+    background: #03435F;
+    color: #76EEC6;
+`;
+
+const GlobalStyle = createGlobalStyle`
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: #02111B; 
+        color: #76EEC6; 
+        font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    }
 `;
 
 export default function App(){
@@ -28,10 +43,13 @@ export default function App(){
     }, []);
 
     return(
-        <ParentDiv>
-            <AnimeList data={data}/>
-        </ParentDiv>
-    )
+        <>
+            <GlobalStyle/>
+            <ParentDiv>
+                <AnimeList data={data}/>
+            </ParentDiv>
+        </>
+    );
 }
 
 
