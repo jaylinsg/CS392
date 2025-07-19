@@ -1,14 +1,15 @@
 // src/types.ts
 
-//  GET / characters
-export interface CharacterSummary {
-  _id?: string;
-  id?: number;
+export interface CharacterDetail {
+  id: number;
   name: string;
-}
-
-// GET / characters / :id
-export interface CharacterDetail extends CharacterSummary {
-  clan?: string;
-  clan_id?: number;
+  images: string[];
+  personal: {
+    clan: string
+    affiliation: string[]
+  }
+  rank: {
+    ninjaRank: Record<string, string>   
+    ninjaRegistration: string
+  }
 }
