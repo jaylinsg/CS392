@@ -1,5 +1,7 @@
+// src/components/mains/Home.tsx
+
 import styled from 'styled-components';
-import profilePic from './IMG_9532.jpeg';  
+import profilePic from './IMG_9532.jpeg';
 
 // intro wrapper (.intro)
 const Intro = styled.div`
@@ -95,11 +97,11 @@ export default function Home() {
         <IntroText>
           <figcaption>Throwback</figcaption>
           <p>
-            Hi there! I'm Jaylin Starlin-Ganaway, a Computer Science major at Boston University. 
-            Beyond the bullet points of a traditional resume, this site tells the full story of 
-            my journey—from my first employment to the projects and academic history that shaped 
-            my skills. Since 2016, I've worked in various roles like customer and financial services, 
-            each experience teaching me the importance of problem-solving, teamwork, and 
+            Hi there! I'm Jaylin Starlin-Ganaway, a Computer Science major at Boston University.
+            Beyond the bullet points of a traditional resume, this site tells the full story of
+            my journey—from my first employment to the projects and academic history that shaped
+            my skills. Since 2016, I've worked in various roles like customer and financial services,
+            each experience teaching me the importance of problem-solving, teamwork, and
             continuous learning.
           </p>
         </IntroText>

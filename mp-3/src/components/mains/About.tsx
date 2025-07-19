@@ -1,4 +1,4 @@
-// import styled from "styled-components";
+// src/components/mains/About.tsx
 
 export default function About() {
   return (

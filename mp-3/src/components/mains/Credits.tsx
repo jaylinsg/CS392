@@ -1,3 +1,5 @@
+// src/components/mains/Credits.tsx
+
 export default function Credits() {
   return (
     <>

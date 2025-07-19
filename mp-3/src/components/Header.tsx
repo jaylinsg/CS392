@@ -1,4 +1,5 @@
 // src/components/Header.tsx
+
 import { useLocation } from 'react-router';
 import { useEffect } from 'react';
 import styled from "styled-components";
@@ -34,7 +35,7 @@ const StyleHeader = styled.header`
 `
 
 export default function Header() {
-    const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
   // determine title and header JSX based on current path
   let pageTitle: string;

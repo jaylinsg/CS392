@@ -1,12 +1,15 @@
-import {createBrowserRouter, RouterProvider} from "react-router";
+// src/App.tsx
+
+import { createBrowserRouter, RouterProvider } from "react-router";
 import { createGlobalStyle } from "styled-components";
 import Root from "./components/Root.tsx";
+
 
 const router = createBrowserRouter([
   { path: '*', Component: Root }
 ]);
 
-// making a global style that matches mp-1
+// global style that matches mp-1
 const GlobalStyle = createGlobalStyle`
   :root {
     --dark:   #02111B;

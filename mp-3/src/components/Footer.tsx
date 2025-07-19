@@ -1,5 +1,7 @@
+// src/components/Footer.tsx
+
 import styled from "styled-components";
-import {Link} from "react-router";
+import { Link } from "react-router";
 
 const StyleFooter = styled.footer`
     background: var(--accent);
@@ -8,7 +10,7 @@ const StyleFooter = styled.footer`
 `
 
 export default function Footer() {
-    return(
+    return (
         <>
             <StyleFooter>
                 <p>&#169; 2025 Jaylin Starlin-Ganaway. <Link to="/credits">Credits</Link></p>

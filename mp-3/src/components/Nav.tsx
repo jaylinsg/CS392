@@ -53,7 +53,7 @@ const NavItem = styled.li`
 //     }
 // `;
 
-const StyledNavLink = styled(NavLink) `
+const StyledNavLink = styled(NavLink)`
     display: block;
     padding: 8px var(--gutter);
     font-size: calc(14px + 0.5vw);
@@ -81,7 +81,7 @@ const StyledNavLink = styled(NavLink) `
 `
 
 export default function Nav() {
-    return(
+    return (
         <StyledNav>
             <NavList>
                 <NavItem><StyledNavLink to={`/`}>Home</StyledNavLink></NavItem>

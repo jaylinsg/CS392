@@ -1,4 +1,6 @@
-import {Routes, Route} from "react-router";
+// src/components/Root.tsx
+
+import { Routes, Route } from "react-router";
 import styled from "styled-components";
 import Home from './mains/Home';
 import Education from './mains/Education';

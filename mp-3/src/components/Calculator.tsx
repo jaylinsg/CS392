@@ -1,8 +1,9 @@
-// inside src/components/mains/Projects.tsx
+// src/components/Calculator.tsx
+
 import { useState } from 'react';
 import styled from 'styled-components';
 
-/* 1️⃣ Styled-components matching your MP-1 CSS: */
+// calculator styling from mp-1
 const CalcSection = styled.section.attrs({ id: 'calculator' })`
   background: var(--mid);
   padding: var(--gutter);
@@ -32,6 +33,7 @@ const Result = styled.div<{ negative: boolean }>`
 `;
 
 export default function SimpleCalculator() {
+  // inputs & results
   const [a, setA] = useState('');
   const [b, setB] = useState('');
   const [res, setRes] = useState<string>('');
@@ -40,6 +42,8 @@ export default function SimpleCalculator() {
   function calculate(op: 'add' | 'subtract' | 'multiply' | 'divide' | 'power') {
     const num1 = parseFloat(a);
     const num2 = parseFloat(b);
+
+    // validate input == number
     if (isNaN(num1) || isNaN(num2)) {
       setRes('Enter two valid numbers.');
       setNeg(false);
@@ -47,15 +51,14 @@ export default function SimpleCalculator() {
     }
     let val: number | string;
     switch (op) {
-      case 'add':      val = num1 + num2; break;
+      case 'add': val = num1 + num2; break;
       case 'subtract': val = num1 - num2; break;
       case 'multiply': val = num1 * num2; break;
-      case 'divide':   val = num2 !== 0 ? num1 / num2 : 'Error: cannot divide by 0'; break;
-      case 'power':
-        val = 1;
-        for (let i = 0; i < num2; i++) val = (val as number) * num1;
-        break;
+      case 'divide': val = num2 !== 0 ? num1 / num2 : 'Error: cannot divide by 0'; break;
+      case 'power': val = 1; for (let i = 0; i < num2; i++) val = (val as number) * num1; break;
     }
+
+    // make negative results show up red
     if (typeof val === 'number' && val < 0) {
       setNeg(true);
     } else {

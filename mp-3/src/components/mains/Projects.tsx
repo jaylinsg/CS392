@@ -1,4 +1,6 @@
-import SimpleCalculator from '../Calculator'; 
+// src/components/mains/Projects.tsx
+
+import SimpleCalculator from '../Calculator';
 
 export default function Projects() {
   return (

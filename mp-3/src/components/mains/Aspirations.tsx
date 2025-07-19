@@ -1,3 +1,5 @@
+// src/components/mains/Aspirations.tsx
+
 export default function Aspirations() {
   return (
     <>
