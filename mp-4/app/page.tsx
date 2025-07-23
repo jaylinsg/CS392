@@ -2,12 +2,15 @@ import { getArtObjects } from '../lib/harvardApi';
 import ArtList from '../components/ArtList';
 import SearchForm from '../components/SearchForm';
 
-type Props = {
-  searchParams: { q?: string };
-};
+export default async function Home(props: {
+  searchParams: { q?: string | string[] };
+}) {
+  const { searchParams } = props;
+  const qParam = Array.isArray(searchParams.q)
+    ? searchParams.q[0]
+    : searchParams.q;
 
-export default async function Home({ searchParams }: Props) {
-  const artObjects = await getArtObjects(searchParams.q);
+    const artObjects = await getArtObjects(qParam);
 
   return (
     <main className="container mx-auto px-4 py-12">
@@ -15,13 +18,13 @@ export default async function Home({ searchParams }: Props) {
         Harvard Art Explorer
       </h1>
 
-      <SearchForm initialQuery={searchParams.q} />
+      <SearchForm initialQuery={qParam} />
 
       {artObjects === null ? (
         <p className="text-center text-red-200">Error loading artworks.</p>
       ) : artObjects.length === 0 ? (
         <p className="text-center text-gray-200">
-          No results for “{searchParams.q}.”
+          No results for “{qParam}.”
         </p>
       ) : (
         <ArtList artObjects={artObjects} />
