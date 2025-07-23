@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import type { CharacterDetail } from './types'
+import type { HPDetail } from './types'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -89,101 +89,47 @@ const Card = styled.div`
 `
 
 export default function CharacterList() {
-  const [chars, setChars] = useState<CharacterDetail[]>([])
+  const [chars, setChars] = useState<HPDetail[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<string|null>(null)
 
   useEffect(() => {
-    let cancelled = false
-
-    async function fetchAllPages() {
-      setLoading(true)
-      setError(null)
-
-      try {
-        // page 1
-        const res1 = await fetch(
-          'https://dattebayo-api.onrender.com/characters?page=1'
-        )
-        if (!res1.ok) throw new Error(`Page 1 failed: ${res1.status}`)
-        const json1: {
-          characters: CharacterDetail[]
-          pageSize: number
-          total: number
-        } = await res1.json()
-
-        const allChars = [...json1.characters]
-        const totalPages = Math.ceil(json1.total / json1.pageSize)
-        const pages = Array.from({ length: totalPages - 1 }, (_, i) => i + 2)
-
-        // parallel fetch of remaining pages
-        const results = await Promise.all(
-          pages.map(page =>
-            fetch(
-              `https://dattebayo-api.onrender.com/characters?page=${page}`
-            ).then(res => {
-              if (!res.ok)
-                throw new Error(`Page ${page} failed: ${res.status}`)
-              return res.json() as Promise<{
-                characters: CharacterDetail[]
-              }>
-            })
-          )
-        )
-
-        results.forEach(r => allChars.push(...r.characters))
-        if (!cancelled) setChars(allChars)
-      } catch (e: any) {
-        console.error('Error fetching characters:', e)
-        if (!cancelled) setError(e.message)
-      } finally {
-        if (!cancelled) setLoading(false)
-      }
-    }
-
-    fetchAllPages()
-    return () => {
-      cancelled = true
-    }
+    fetch('https://hp-api.onrender.com/api/characters')
+      .then(res => {
+        if (!res.ok) throw new Error(res.statusText)
+        return res.json() as Promise<HPDetail[]>
+      })
+      .then(setChars)
+      .catch(e => {
+        console.error(e)
+        setError(e.message)
+      })
+      .finally(() => setLoading(false))
   }, [])
 
   if (loading) return <p>Loading…</p>
-  if (error) return <p style={{ color: '#ff4500', textAlign: 'center' }}>Error: {error}</p>
+  if (error)   return <p style={{ color: '#ff4500', textAlign: 'center' }}>Error: {error}</p>
+  if (!chars.length) return <p>No characters found.</p>
 
   return (
     <>
       <GlobalStyle />
-      <Header>From Dattebayo API</Header>
+      <Header>Harry Potter Characters</Header>
       <Container>
         <Grid>
-          {chars.map(c => {
-            const clan = c.personal?.clan ?? 'Unknown'
-            const aff = Array.isArray(c.personal?.affiliation)
-              ? c.personal.affiliation.join(', ')
-              : String(c.personal?.affiliation ?? 'Unknown')
-            const ninjaRank = c.rank?.ninjaRank ?? {}
-            const rankText = Object.entries(ninjaRank).length
-              ? Object.entries(ninjaRank)
-                .map(([p, t]) => `${p}: ${t}`)
-                .join(', ')
-              : 'Unknown'
-
-            return (
-              <Card key={c.id}>
-                <h3>{c.name}</h3>
-                {c.images?.[0] && <img src={c.images[0]} alt={c.name} />}
-                <div className="details">
-                  <p><strong>Clan:</strong> {clan}</p>
-                  <p><strong>Affiliation:</strong> {aff}</p>
-                  <p><strong>Rank:</strong> {rankText}</p>
-                  <p>
-                    <strong>Debut (Anime):</strong>{' '}
-                    {c.debut?.anime ?? 'Unknown'}
-                  </p>
-                </div>
-              </Card>
-            )
-          })}
+          {chars.map(c => (
+            <Card key={c.id}>
+              <h3>{c.name}</h3>
+              {c.image && <img src={c.image} alt={c.name} />}
+              <div className="details">
+                <p><strong>House:</strong> {c.house || 'Unknown'}</p>
+                <p><strong>Actor:</strong> {c.actor || 'Unknown'}</p>
+                <p><strong>Gender:</strong> {c.gender}</p>
+                <p><strong>Born:</strong> {c.yearOfBirth || 'Unknown'}</p>
+                <p><strong>Hair:</strong> {c.hairColour || 'Unknown'}</p>
+              </div>
+            </Card>
+          ))}
         </Grid>
       </Container>
     </>

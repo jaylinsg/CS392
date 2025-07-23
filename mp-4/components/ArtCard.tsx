@@ -7,7 +7,7 @@ export default function ArtCard({ art }: { art: ArtObject }) {
         <img
           src={art.primaryimageurl}
           alt={art.title ?? 'Artwork'}
-          className="w-full h-48 object-cover rounded-lg"
+          className="w-full h-12 object-cover rounded-lg"
         />
       )}
       <div className="mt-4">

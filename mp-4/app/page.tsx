@@ -13,7 +13,7 @@ export default async function Home(props: {
     const artObjects = await getArtObjects(qParam);
 
   return (
-    <main className="container mx-auto px-4 py-12">
+    <main className="flex flex-col items-center justify-center p-4 pt-28">
       <h1 className="text-5xl font-bold text-center mb-10 drop-shadow-lg">
         Harvard Art Explorer
       </h1>
