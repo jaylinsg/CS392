@@ -2,15 +2,19 @@ import { getArtObjects } from '../lib/harvardApi';
 import ArtList from '../components/ArtList';
 import SearchForm from '../components/SearchForm';
 
-export default async function Home(props: {
-  searchParams: { q?: string | string[] };
+export default async function Home({
+  params,
+  searchParams,
+}: {
+  params: {};                                      // root route has no dynamic params
+  searchParams: { q?: string | string[] };         // annotate exactly what you expect
 }) {
-  const { searchParams } = props;
+  // extract q (could be array or string)
   const qParam = Array.isArray(searchParams.q)
     ? searchParams.q[0]
     : searchParams.q;
 
-    const artObjects = await getArtObjects(qParam);
+  const artObjects = await getArtObjects(qParam);
 
   return (
     <main className="flex flex-col items-center justify-center p-4 pt-28">

@@ -1,14 +1,18 @@
 import { ArtObject } from '../types';
+import Image from 'next/image';
 
 export default function ArtCard({ art }: { art: ArtObject }) {
   return (
     <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition p-4">
       {art.primaryimageurl && (
-        <img
-          src={art.primaryimageurl}
-          alt={art.title ?? 'Artwork'}
-          className="w-full h-12 object-cover rounded-lg"
-        />
+        <div className="relative w-full h-48">
+          <Image
+            src={art.primaryimageurl}
+            alt={art.title ?? 'Artwork image'}
+            layout="fill"
+            className="object-cover rounded-lg"
+          />
+        </div>
       )}
       <div className="mt-4">
         <h2 className="text-xl font-bold text-gray-900">{art.title ?? 'Untitled'}</h2>
