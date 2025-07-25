@@ -3,10 +3,10 @@ import ArtList from '../components/ArtList';
 import SearchForm from '../components/SearchForm';
 
 export default async function Home({
-  params,
+  params: _params,
   searchParams,
 }: {
-  params: {};                                      // root route has no dynamic params
+  params: Record<string, never>;
   searchParams: { q?: string | string[] };         // annotate exactly what you expect
 }) {
   // extract q (could be array or string)
