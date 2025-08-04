@@ -40,9 +40,9 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-50">
-      <div className="w-full max-w-md bg-white p-6 rounded shadow">
-        <h1 className="text-3xl font-bold mb-6 text-center">🔗 URL Shortener</h1>
+    <main className="min-h-screen flex items-center justify-center bg-gray-900 text-white p-6">
+      <div className="w-full max-w-md bg-white text-black p-6 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-900">🔗 URL Shortener</h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
@@ -90,7 +90,7 @@ export default function Home() {
             </p>
             <button
               onClick={handleCopy}
-              className="mt-3 bg-gray-200 hover:bg-gray-300 text-sm px-4 py-2 rounded"
+              className="mt-3 bg-gray-800 text-white hover:bg-gray-700 text-sm px-4 py-2 rounded"
             >
               {copied ? "Copied!" : "Copy to Clipboard"}
             </button>
